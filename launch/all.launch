@@ -1,0 +1,15 @@
+<!--  Launch file to run everything: YouBot, Gazebo GUI, and move_base node (solution) -->
+<launch>
+
+<include file="$(find project_1)/launch/youbot.launch"/>
+
+<node pkg="project_1" type="move_base.py" name="move_base" output="screen">
+<param name="propotional_gain" value="1.5"/>
+<param name="tolerance" value="0.1"/>
+</node>
+
+<node pkg="rviz" type="rviz" name="rviz" 
+args="-d $(find project_1)/rviz/config.rviz">
+</node>
+
+</launch>
